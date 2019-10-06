@@ -14,8 +14,9 @@ import {
   Content,
   Header
 } from "native-base";
+import { propTypes } from "mobx-react";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
     <Content>
       <Header transparent />
@@ -49,10 +50,18 @@ const Login = () => {
             </Form>
           </Body>
         </ListItem>
-        <Button full success>
+        <Button
+          full
+          success
+          onPress={() => navigation.navigate("CoffeeListScreen")}
+        >
           <Text>Login</Text>
         </Button>
-        <Button full warning>
+        <Button
+          full
+          warning
+          onPress={() => navigation.navigate("CoffeeListScreen")}
+        >
           <Text>Register</Text>
         </Button>
       </List>

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 
+//Components
+import Cart from "../Cart";
+
 // NativeBase Components
 import {
   Thumbnail,
@@ -39,9 +42,15 @@ class CoffeeDetail extends Component {
     });
   };
 
+  cart = () => {
+    return <Icon name="trash" style={{ color: "white", fontSize: 21 }} />;
+  };
+
   render() {
     if (!cafes) return <Content />;
-    const cafe = cafes[0];
+    const cafeID = this.props.navigation.getParam("coffeeID");
+    const cafe = cafes.find(cafe => cafeID === cafe.id);
+
     return (
       <Content>
         <List>
@@ -95,3 +104,12 @@ class CoffeeDetail extends Component {
 }
 
 export default observer(CoffeeDetail);
+
+CoffeeDetail.navigationOptions = ({ navigation }) => {
+  const cafeID = navigation.getParam("coffeeID");
+  const cafe = cafes.find(cafe => cafeID === cafe.id);
+  return {
+    title: cafe.name,
+    headerRight: <Cart />
+  };
+};
