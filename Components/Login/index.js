@@ -53,14 +53,14 @@ const Login = ({ navigation }) => {
         <Button
           full
           success
-          onPress={() => navigation.navigate("CoffeeListScreen")}
+          onPress={() => navigation.replace("CoffeeListScreen")}
         >
           <Text>Login</Text>
         </Button>
         <Button
           full
           warning
-          onPress={() => navigation.navigate("CoffeeListScreen")}
+          
         >
           <Text>Register</Text>
         </Button>

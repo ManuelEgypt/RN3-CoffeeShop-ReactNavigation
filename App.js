@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Spinner } from "native-base";
 import HomePage from "./Components/HomePage";
-import AppContainer from "./Navigation";
+import BottomTab from "./Navigation";
 
 export default class App extends Component {
   state = {
@@ -20,6 +20,6 @@ export default class App extends Component {
     if (this.state.loading) {
       return <Spinner color="white" />;
     }
-    return <AppContainer />;
+    return <BottomTab />;
   }
 }
